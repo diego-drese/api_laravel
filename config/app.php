@@ -146,6 +146,7 @@ return [
 		'App\Providers\RouteServiceProvider',
 		'LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider',
 		'LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider',
+        'Yajra\Datatables\DatatablesServiceProvider',
 
 
 
@@ -197,7 +198,7 @@ return [
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
 		'Authorizer' => 'LucaDegasperi\OAuth2Server\Facades\AuthorizerFacade',
-
+        'Datatables' => 'Yajra\Datatables\Datatables::class'
 
 	],
 

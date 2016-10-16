@@ -26,6 +26,20 @@ Route::post('oauth/access_token', function() {
 });
 
 Route::group(['prefix'=>'api','before' => 'oauth'], function(){
+
+    /* Grupos de permissões */
+    Route::get('/acl_group',['middleware' => 'AclPermittedFilter','uses' => 'Api\AclGroup@index']);
+    Route::post('/acl_group/add',['middleware' => 'AclPermittedFilter','uses' => 'Api\AclGroup@add']);
+    Route::post('/acl_group/edit',['middleware' => 'AclPermittedFilter','uses' => 'Api\AclGroup@edit']);
+    /* Fim das permissoes de grupos */
+
+    /* Permissoes */
+    Route::get('/acl_permissions',['middleware' => 'AclPermittedFilter','uses' => 'Api\AclPermissions@index']);
+    Route::post('/acl_permissions/add',['middleware' => 'AclPermittedFilter','uses' => 'Api\AclPermissions@add']);
+    Route::post('/acl_permissions/edit',['middleware' => 'AclPermittedFilter','uses' => 'Api\AclPermissions@edit']);
+    /* Permissoes */
+
+
     Route::get('/user_data',['middleware' => 'AclPermittedFilter','uses' => 'Api\User@index']);
     Route::get('/posts',  'PostController@index');
 });
